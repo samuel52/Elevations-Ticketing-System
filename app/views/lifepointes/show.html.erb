@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fname:</strong>
+  <%= @lifepointe.fname %>
+</p>
+
+<p>
+  <strong>Lname:</strong>
+  <%= @lifepointe.lname %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @lifepointe.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @lifepointe.phone %>
+</p>
+
+<%= link_to 'Edit', edit_lifepointe_path(@lifepointe) %> |
+<%= link_to 'Back', lifepointes_path %>

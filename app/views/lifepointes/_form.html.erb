@@ -1,0 +1,37 @@
+<%= form_for(lifepointe) do |f| %>
+  <% if lifepointe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lifepointe.errors.count, "error") %> prohibited this lifepointe from being saved:</h2>
+
+      <ul>
+      <% lifepointe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :fname %>
+    <%= f.text_field :fname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :lname %>
+    <%= f.text_field :lname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
