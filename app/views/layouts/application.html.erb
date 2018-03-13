@@ -9,6 +9,30 @@
   </head>
 
   <body>
-    <%= yield %>
+  	<nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <%= link_to "LifePoint", root_path, class: "navbar-brand" %>
+        </div>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+            <li><%= link_to 'New Lifepointe', new_lifepointe_path %>
+            <li><%= link_to 'Edit Profile', edit_user_registration_path %>
+            <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+            <% else %>
+            <li><%= link_to 'Signup', new_user_registration_path %></li>
+            <li><%= link_to 'Login', new_user_session_path %></li>
+            <% end %>
+            
+          	</li>
+          </ul>
+      </div>
+    </nav>
+     <p class="notice"><%= notice %></p>
+     <p class="alert"><%= alert %></p>
+
+    <div class="container">
+    	<%= yield %>
+    </div>
   </body>
 </html>

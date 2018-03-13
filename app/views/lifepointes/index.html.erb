@@ -1,14 +1,21 @@
 <p id="notice"><%= notice %></p>
+<% if user_signed_in? %>
+<div class="form-group form-group-lg">
+  <%= form_tag lifepointes_path, :method => "get", :class => 'form-group' do %>
+  <%= text_field_tag :search, params[:search], :class => 'form-control' %>
+ 
+<% end %>
+</div>
 
-<h1>Lifepointes</h1>
-
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Fname</th>
-      <th>Lname</th>
+      <th>N/O</th>
+      <th>First name</th>
+      <th>Last name</th>
       <th>Email</th>
       <th>Phone</th>
+      <th>Registered Date</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,18 +23,19 @@
   <tbody>
     <% @lifepointes.each do |lifepointe| %>
       <tr>
+        <td><%= lifepointe.id %></td>
         <td><%= lifepointe.fname %></td>
         <td><%= lifepointe.lname %></td>
         <td><%= lifepointe.email %></td>
         <td><%= lifepointe.phone %></td>
+        <td><%= lifepointe.created_at %></td>
         <td><%= link_to 'Show', lifepointe %></td>
         <td><%= link_to 'Edit', edit_lifepointe_path(lifepointe) %></td>
-        <td><%= link_to 'Destroy', lifepointe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', lifepointe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Lifepointe', new_lifepointe_path %>
+<% else %>
+<h1>hello world</h1>
+<% end -%>
