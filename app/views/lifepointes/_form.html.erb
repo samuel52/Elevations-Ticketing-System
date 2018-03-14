@@ -1,37 +1,46 @@
-<%= form_for(lifepointe) do |f| %>
-  <% if lifepointe.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(lifepointe.errors.count, "error") %> prohibited this lifepointe from being saved:</h2>
+<div class="page-content container">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <div class="login-wrapper">
+              <div class="box">
+                  <div class="content-wrap">
+                      <h6><%= head = "Onboard Attendes" %></h6>
+                      <%= form_for(lifepointe) do |f| %>
+                      <% if lifepointe.errors.any? %>
+                        <div id="error_explanation">
+                          <h2><%= pluralize(lifepointe.errors.count, "error") %> prohibited this lifepointe from being saved:</h2>
 
-      <ul>
-      <% lifepointe.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+                          <ul>
+                          <% lifepointe.errors.full_messages.each do |message| %>
+                            <li><%= message %></li>
+                          <% end %>
+                          </ul>
+                        </div>
+                      <% end %>
+
+                      <div class="field">
+                        <%= f.text_field :fname, required: true, placeholder: 'First Name', :class => 'form-control' %>
+                      </div>
+
+                      <div class="field">
+                        <%= f.text_field :lname, required: true, placeholder: 'Last Name', :class => 'form-control' %>
+                      </div>
+
+                      <div class="field">
+                        <%= f.email_field :email, required: true, placeholder: 'Email', :class => 'form-control' %>
+                      </div>
+                      <br>
+                      <div class="field">
+                        <%= f.telephone_field :phone, required: true, placeholder: 'Phone', :class => 'form-control' %>
+                      </div>
+                      <br>
+                      <div class="actions">
+                        <%= f.submit({:class => 'btn btn-primary signup'}) %>
+                      </div>
+                    <% end %>              
+                  </div>
+              </div>
+          </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :fname %>
-    <%= f.text_field :fname, required: true, placeholder: 'firts name' %>
   </div>
-
-  <div class="field">
-    <%= f.label :lname %>
-    <%= f.text_field :lname, required: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email, required: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :phone %>
-    <%= f.telephone_field :phone, required: true %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
