@@ -13,22 +13,22 @@
 
   <div class="field">
     <%= f.label :fname %>
-    <%= f.text_field :fname %>
+    <%= f.text_field :fname, required: true, placeholder: 'firts name' %>
   </div>
 
   <div class="field">
     <%= f.label :lname %>
-    <%= f.text_field :lname %>
+    <%= f.text_field :lname, required: true %>
   </div>
 
   <div class="field">
     <%= f.label :email %>
-    <%= f.email_field :email %>
+    <%= f.email_field :email, required: true %>
   </div>
 
   <div class="field">
     <%= f.label :phone %>
-    <%= f.telephone_field :phone %>
+    <%= f.telephone_field :phone, required: true %>
   </div>
 
   <div class="actions">
