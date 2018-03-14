@@ -1,2 +1,3 @@
 class Lifepointe < ApplicationRecord
+	
 end

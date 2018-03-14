@@ -5,11 +5,15 @@ class LifepointesController < ApplicationController
   # GET /lifepointes.json
   def index
     @lifepointes = Lifepointe.where(["fname LIKE ?","%#{params[:search]}%"])
+    @lifepointe = Lifepointe.new
   end
 
   # GET /lifepointes/1
   # GET /lifepointes/1.json
   def show
+  end
+
+  def home
   end
 
   # GET /lifepointes/new
